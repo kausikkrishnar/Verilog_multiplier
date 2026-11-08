@@ -22,7 +22,7 @@
 
 module eqz_0(
     output eq,
-    input data_in
+    input [15:0] data_in
     );
     assign eq = (data_in == 16'b0);
   

@@ -23,13 +23,15 @@
 module data_path(
     input ld_a, ld_b, ld_p, clr_p,dec_b, clk,
     input [15:0] data_in ,
-    output eqz
+    output eqz,
+    output [15:0] product
     );
-    wire [15:0] x,y,z, bus,bus_out;
+    wire [15:0] x,y,z,b_out;
     
-    pipo_A A(x,bus,ld_a,clk);
+    pipo_A A(x,data_in,ld_a,clk);
     pipo_P P(y,z,ld_p,clr_p,clk);
-    cntr   B(b_out,bus,ld_b,dec_b,clk);
-    add AD(z,x,y);
-    eqz_0 e(eqz,bus_out);    
+    cntr   B(b_out,data_in,ld_b,dec_b,clk);
+    add AD(x,y,z);
+    eqz_0 e(eqz,b_out);
+    assign product = y;    
 endmodule
