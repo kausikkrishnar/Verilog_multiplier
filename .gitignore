@@ -1,0 +1,17 @@
+# Vivado generated folders
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.runs/
+*.gen/
+.Xil/
+
+# Vivado logs and temporary files
+*.jou
+*.log
+*.str
+*.wdb
+*.pb
+*.backup.*
+dfx_runtime.txt
