@@ -36,7 +36,7 @@ module booths_datapath(
     
     booths_shiftreg A_reg(.s_in(A[15]),.clk(clk),.sft(sftA),.ld(ldA),.clr(clrA),.data(Z),.data_out(A));
     booths_shiftreg Q_reg(.s_in(A[0]),.clk(clk),.sft(sftQ),.ld(ldQ),.clr(clrQ),.data(data_in),.data_out(Q));
-    booths_dff QM1(.d(Q[0]),.clk(clk),.clr(clrFF),.q(q_m1));
+    booths_dff QM1(.d(Q[0]),.clk(clk),.clr(clrFF),.en(sftQ),.q(q_m1));
     booths_PIPO_reg M_reg(.ld(ldM),.clk(clk), .Multiplicant(data_in),.M_out(M));
     booths_ALU_addsub ALU(.add_sub(addsub),.A_in(A), .M_in(M),.result(Z));
     
